@@ -1,5 +1,4 @@
 import express from "express";
-import http from "http";
 import cors from "cors";
 import mongoose from "mongoose";
 
@@ -12,8 +11,14 @@ app.use(cors());
 
 const port = process.env.PORT || process.env.PORT_API;
 
-const server = http.createServer(app);
-
-server.listen(port, () => {
-  console.log(`Server is listening on port${port}`);
-});
+mongoose
+  .connect(process.env.MONGO_URL)
+  .then(() => {
+    app.listen(port, () => {
+      console.log(`Server is listening on port ${port}`);
+    });
+  })
+  .catch((error) => {
+    console.log("DB Connection Failed!");
+    console.error(error);
+  });
