@@ -1,5 +1,6 @@
-import User from "./../../models/user";
+import User from "./../../models/user.js";
 import bcryptjs from "bcryptjs";
+import jwt from "jsonwebtoken";
 
 const postRegister = async (req, res) => {
   try {
@@ -21,7 +22,14 @@ const postRegister = async (req, res) => {
       password: encryptedPassword,
     });
     //create jwt token
-    const token = "jwt";
+    const token = jwt.sign(
+      {
+        userId: user._id,
+        email: email,
+      },
+      process.env.SECRET,
+      { expiresIn: "24h" }
+    );
     res.status(201).json({
       email: user.email,
       username: user.username,
