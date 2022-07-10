@@ -27,7 +27,7 @@ const postRegister = async (req, res) => {
         userId: user._id,
         email: email,
       },
-      process.env.SECRET,
+      process.env.TOKEN_KEY,
       { expiresIn: "24h" }
     );
     res.status(201).json({

@@ -2,6 +2,7 @@ import express from "express";
 import { postRegister, postLogin } from "../controllers/auth/authController.js";
 import Joi from "joi";
 import validator from "express-joi-validation";
+import verifyToken from "./../middlewares/auth.js";
 
 const authValidator = validator.createValidator({});
 
@@ -20,4 +21,7 @@ router.post("/register", authValidator.body(registerSchema), postRegister);
 
 router.post("/login", authValidator.body(loginSchema), postLogin);
 
+router.get("/test", verifyToken, (req, res) => {
+  res.send("token passed");
+});
 export default router;
