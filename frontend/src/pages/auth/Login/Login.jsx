@@ -10,8 +10,10 @@ import { useNavigate } from "react-router-dom";
 import { Tooltip } from "@mui/material";
 import { useEffect } from "react";
 import { validateLoginForm } from "./../../../utils/validators";
+import { connect } from "react-redux";
+import { getActions } from "../../../store/actions/authActions";
 
-function Login() {
+function Login({ login }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isFormValid, setIsFormValid] = useState(false);
@@ -26,28 +28,27 @@ function Login() {
   };
 
   const handleLogin = () => {
-    console.log(email);
-    console.log(password);
-    console.log("login");
+    const userDetails = { email, password };
+    login(userDetails, navigate);
   };
-  // const Form = [
-  //   {
-  //     id: 1,
-  //     value: email,
-  //     setValue: setEmail,
-  //     label: "Email",
-  //     type: "email",
-  //     placeholder: "Enter email address",
-  //   },
-  //   {
-  //     id: 2,
-  //     value: password,
-  //     setValue: setPassword,
-  //     label: "Password",
-  //     type: "text",
-  //     placeholder: "Enter password",
-  //   },
-  // ];
+  const Form = [
+    {
+      id: 1,
+      value: email,
+      setValue: setEmail,
+      label: "Email",
+      type: "email",
+      placeholder: "Enter email address",
+    },
+    {
+      id: 2,
+      value: password,
+      setValue: setPassword,
+      label: "Password",
+      type: "text",
+      placeholder: "Enter password",
+    },
+  ];
   return (
     <AuthBox>
       <Typography variant="h5" sx={{ color: "white" }}>
@@ -56,7 +57,7 @@ function Login() {
       <Typography variant="" sx={{ color: "#b9bbbe" }}>
         We are happy that you are with us.
       </Typography>
-      {/* {Form.map((item) => (
+      {Form.map((item) => (
         <InputComp
           value={item.value}
           setValue={item.setValue}
@@ -65,21 +66,8 @@ function Login() {
           placeholder={item.placeholder}
           key={item.id}
         />
-      ))} */}
-      <InputComp
-        value={email}
-        setValue={setEmail}
-        label="Email"
-        type="text"
-        placeholder="Enter your email"
-      />
-      <InputComp
-        value={password}
-        setValue={setPassword}
-        label="Password"
-        type="text"
-        placeholder="Enter your password"
-      />
+      ))}
+
       <Tooltip
         title={
           !isFormValid ? "Enter correct Email and Password" : "Press to login"
@@ -104,5 +92,7 @@ function Login() {
     </AuthBox>
   );
 }
-
-export default Login;
+const mapActionsToProps = (dispatch) => {
+  return { ...getActions(dispatch) };
+};
+export default connect(null, mapActionsToProps)(Login);
