@@ -11,7 +11,7 @@ export const validateRegisterForm = ({ email, password, username }) => {
 const validatePassword = (password) => {
   return password.length > 6 && password.length < 12;
 };
-const validateEmail = (email) => {
+export const validateEmail = (email) => {
   let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   return regexEmail.test(email);
 };

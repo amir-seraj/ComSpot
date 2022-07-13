@@ -7,6 +7,12 @@ import AppBar from "./AppBar";
 import FriendsSideBar from "./FriendsSideBar";
 import SideBar from "./SideBar";
 import Messenger from "./Messenger";
+import MainPageButton from "./MainPageButton";
+import FriendsList from "./FriendsList";
+import PendingList from "./PendingList";
+import AddFriendDialog from "./AddFriendDialog";
+import FriendsListItem from "./FriendsListItem";
+import Avatar from "./Avatar";
 export {
   AuthBox,
   InputComp,
@@ -17,4 +23,10 @@ export {
   FriendsSideBar,
   SideBar,
   Messenger,
+  MainPageButton,
+  FriendsList,
+  PendingList,
+  AddFriendDialog,
+  FriendsListItem,
+  Avatar,
 };
