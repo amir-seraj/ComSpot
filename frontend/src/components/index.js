@@ -15,6 +15,7 @@ import FriendsListItem from "./FriendsListItem";
 import Avatar from "./Avatar";
 import OnlineIndicator from "./OnlineIndicator";
 import InvitationListItem from "./InvitationListItem";
+import DropDown from "./Dropdown";
 export {
   AuthBox,
   InputComp,
@@ -33,4 +34,5 @@ export {
   Avatar,
   OnlineIndicator,
   InvitationListItem,
+  DropDown,
 };

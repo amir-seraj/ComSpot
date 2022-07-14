@@ -1,5 +1,6 @@
 import React from "react";
 import { styled } from "@mui/system";
+import { DropDown } from "./";
 
 const MainContainer = styled("div")({
   position: "absolute",
@@ -15,7 +16,11 @@ const MainContainer = styled("div")({
   padding: "0 15px",
 });
 function AppBar() {
-  return <MainContainer>AppBar</MainContainer>;
+  return (
+    <MainContainer>
+      <DropDown />
+    </MainContainer>
+  );
 }
 
 export default AppBar;
