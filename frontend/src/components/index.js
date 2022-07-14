@@ -9,10 +9,12 @@ import SideBar from "./SideBar";
 import Messenger from "./Messenger";
 import MainPageButton from "./MainPageButton";
 import FriendsList from "./FriendsList";
-import PendingList from "./PendingList";
+import InvitationList from "./InvitationList.jsx";
 import AddFriendDialog from "./AddFriendDialog";
 import FriendsListItem from "./FriendsListItem";
 import Avatar from "./Avatar";
+import OnlineIndicator from "./OnlineIndicator";
+import InvitationListItem from "./InvitationListItem";
 export {
   AuthBox,
   InputComp,
@@ -25,8 +27,10 @@ export {
   Messenger,
   MainPageButton,
   FriendsList,
-  PendingList,
+  InvitationList,
   AddFriendDialog,
   FriendsListItem,
   Avatar,
+  OnlineIndicator,
+  InvitationListItem,
 };

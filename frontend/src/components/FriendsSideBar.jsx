@@ -4,7 +4,7 @@ import { Typography } from "@mui/material";
 import {
   AddFriendDialog,
   FriendsList,
-  PendingList,
+  InvitationList,
   CustomPrimaryButton,
 } from ".";
 
@@ -61,7 +61,7 @@ function FriendsSideBar() {
       >
         Invitations
       </Typography>
-      <PendingList />
+      <InvitationList />
     </MainContainer>
   );
 }

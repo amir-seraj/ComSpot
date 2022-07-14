@@ -1,6 +1,6 @@
 import { Button, Typography } from "@mui/material";
 import React from "react";
-import { Avatar } from "./";
+import { Avatar, OnlineIndicator } from "./";
 function FriendsListItem({ id, username, isOnline }) {
   return (
     <Button
@@ -24,6 +24,7 @@ function FriendsListItem({ id, username, isOnline }) {
       >
         {username}
       </Typography>
+      {isOnline && <OnlineIndicator />}
     </Button>
   );
 }
