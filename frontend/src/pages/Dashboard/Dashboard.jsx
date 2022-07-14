@@ -4,6 +4,7 @@ import { AppBar, FriendsSideBar, Messenger, SideBar } from "../../components";
 import { logout } from "../../utils/auth";
 import { connect } from "react-redux";
 import { getActions } from "../../store/actions/authActions";
+import { connectWithSocketServer } from "../../RTC/socketConnection";
 const Wrapper = styled("div")({
   width: "100%",
   height: "100vh",
@@ -16,6 +17,7 @@ function Dashboard({ setUserDetails }) {
       logout();
     } else {
       setUserDetails = JSON.parse(userDetails);
+      connectWithSocketServer();
     }
   }, []);
   return (
